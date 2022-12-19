@@ -1,0 +1,24 @@
+RewriteEngine On
+    RewriteRule ^sitemap.xml/?$ sitemap.php
+    RewriteRule ^sitemap_post.xml/?$ sitemap_post.php
+    RewriteRule ^sitemap_cat.xml/?$ sitemap_cat.php
+    #RewriteBase /demo/
+    #RewriteCond %{REQUEST_FILENAME} !-f [NC]
+    #RewriteCond %{REQUEST_FILENAME} !-d [NC]
+    #RewriteRule ^(.*)$ post.php?post=$1 [QSA,L]
+    
+    #Rediractor Using HTACCESS
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    #Remove .php ext
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php
+
+    RewriteRule ^category/([a-zA-Z0-9-/]+) category.php?item=$1
+    RewriteRule ^post/([a-zA-Z0-9-/]+) post.php?post=$1
+
+
+    
