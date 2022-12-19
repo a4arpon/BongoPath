@@ -109,6 +109,10 @@ include('./lib/core/db.php');
                   <div class="col-4">
                     <span>Publish Date</span>
                     <input type="date" name="post_date" class="form-control mb-2">
+                    <select name="google_news" class="form_control">
+                      <option value="no">No</option>
+                      <option value="yes">Yes</option>
+                    </select>
                   </div>
                 </div>
               </div>

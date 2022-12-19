@@ -2,6 +2,10 @@ RewriteEngine On
     RewriteRule ^sitemap.xml/?$ sitemap.php
     RewriteRule ^sitemap_post.xml/?$ sitemap_post.php
     RewriteRule ^sitemap_cat.xml/?$ sitemap_cat.php
+    RewriteRule ^sitemap_for_google.xml/?$ sitemap_for_google.php
+    # RSS Feed
+    RewriteRule ^rss.xml/?$ rss.php
+    RewriteRule ^rss_for_google.xml/?$ rss_for_google.php
     #RewriteBase /demo/
     #RewriteCond %{REQUEST_FILENAME} !-f [NC]
     #RewriteCond %{REQUEST_FILENAME} !-d [NC]

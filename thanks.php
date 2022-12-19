@@ -3,6 +3,11 @@ include("./library/db.php");
 $site_data_qry = mysqli_query($conn, "SELECT * FROM `site_settings` Where id='1'");
 $site_data = mysqli_fetch_assoc($site_data_qry);
 include("library/function.php");
+if (!isset($_COOKIE['userauthemail'])) {
+    header("location:./index.php");
+} elseif (isset($_COOKIE['userauthemail'])) {
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

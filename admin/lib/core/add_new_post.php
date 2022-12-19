@@ -38,6 +38,12 @@ if (isset($_POST['post_mode'])) {
             $br_id = $select_fetch['post_id'];
             $br_id_set = $con->query("INSERT INTO `breaking_news`(`news_id`) VALUES ('$br_id')");
         }
+        if ($google_news == "yes") {
+            $select_post_id = $con->query("SELECT * FROM `posts` where postSlug='$postSlug'");
+            $select_fetch = $select_post_id->fetch_assoc();
+            $gn_id = $select_fetch['post_id'];
+            $gn_id_set = $con->query("INSERT INTO `google_news`(`news_id`) VALUES ('$gn_id')");
+        }
         header("location:../../forms-editors.php?action_msg='Post Added'");
     }
 }

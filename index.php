@@ -11,7 +11,27 @@ include("library/function.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Latest news, analysis and opinion by the reporters of Bongo Path, Subscribe for Bangladesh and International news, business, politics, sports, science, technology, health, arts and more.">
+    <!-- basic met -->
+    <meta name="description"
+        content="Latest news, analysis and opinion by the reporters of Bongo Path, Subscribe for Bangladesh and International news, business, politics, sports, science, technology, health, arts and more.">
+    <meta name="keywords"
+        content="Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper">
+    <!-- OpenGraph Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bongo Path- Breaking news, Bangladeshi News, World News and more.">
+    <meta property="og:description"
+        content="Latest news, analysis and opinion by the reporters of Bongo Path, Subscribe for Bangladesh and International news, business, politics, sports, science, technology, health, arts and more.">
+    <meta property="og:image" content="assets/img_site/logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta name="brand_name" content="Bongo Path">
+    <!-- Schema Data Index Page -->
+    <script type="application/ld+json">
+        {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"<?= $baseurl ?>"}]}
+    </script>
+    <script type="application/ld+json"
+        data-schema="Organization">{"@context":"http://schema.org","@type":"Organization","name":"<?= $site_data['site_name'] ?>","alternateName":"<?= $site_data['site_name'] ?>","foundingDate":"2022-12-31","url":"<?= $baseurl ?>","logo":{"@type":"ImageObject","url":"<?= $baseurl ?>assets/img_site/logo.jpg"},"image":"assets/img_site/logo.jpg","description":"Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper"}}</script>
+    <!-- canonical url -->
+    <link rel="canonical" href="<?= $baseurl ?>">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -43,7 +63,7 @@ include("library/function.php");
                     <div class="text-center">
                         <h3>Subscribe Our Newsletter</h3>
                     </div>
-                    <form action="<?=$baseurl ?>library/sub_nl.php" method="post">
+                    <form action="<?= $baseurl ?>library/sub_nl.php" method="post">
                         <div class="input-group_news_letter">
                             <input type="email" class="input_newsletter_email" id="Email" name="email"
                                 placeholder="example@email.com" autocomplete="off" required>
