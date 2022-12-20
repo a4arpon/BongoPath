@@ -6,6 +6,6 @@ function cat_fatcher($conn, $recent_post_cat_dat)
     return $rc_post_sql_data['name'];
 }
 function timeStraper($time_post){
-   return date('h:i A j F, y', strtotime($time_post));
+   return date('h:i A j M, y', strtotime($time_post));
 }
 ?>

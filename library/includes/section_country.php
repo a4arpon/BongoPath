@@ -19,13 +19,13 @@
                     <a href="<?= $baseurl ?>post/<?= $cn_news['post_cat'] ?>/<?= $cn_news['postSlug'] ?>"
                         class="text-decoration-none">
                         <div class="alert alert-secondary">
-                            <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $cn_news['thm'] ?>" alt=""
+                            <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $cn_news['thm'] ?>" alt="<?= $cn_news['post_f_alt'] ?>"
                                 height="auto" width="100%">
                             <h1 class="he1 text-truncate mt-2">
                                 <?= $cn_news['post_title'] ?>
                             </h1>
                             <span>
-                                <?= date('h:i A F jS, y', strtotime($cn_news['time'])); ?>
+                                <?= timeStraper($cn_news['time']); ?>
                             </span>
                         </div>
                     </a>
@@ -59,13 +59,13 @@
                     <a href="<?= $baseurl ?>post/<?= $en_news['post_cat'] ?>/<?= $en_news['postSlug'] ?>"
                         class="text-decoration-none">
                         <div class="alert alert-secondary">
-                            <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $en_news['thm'] ?>" alt=""
+                            <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $en_news['thm'] ?>" alt="<?= $en_news['post_f_alt'] ?>"
                                 height="auto" width="100%">
                             <h1 class="he1 text-truncate mt-2">
                                 <?= $en_news['post_title'] ?>
                             </h1>
                             <span>
-                                <?= date('h:i A F jS, y', strtotime($en_news['time'])); ?>
+                                <?= timeStraper($en_news['time']); ?>
                             </span>
                         </div>
                     </a>

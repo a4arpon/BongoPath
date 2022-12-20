@@ -14,8 +14,11 @@
                 }
         ?>
         <div class="col-lg-4 col-md-4">
-            <a href="<?= $baseurl ?>post/<?= $bs_news['post_cat'] ?>/<?= $bs_news['postSlug'] ?>" class="text-decoration-none">
+            <a href="<?= $baseurl ?>post/<?= $bs_news['post_cat'] ?>/<?= $bs_news['postSlug'] ?>"
+                class="text-decoration-none">
                 <div class="alert alert-secondary">
+                    <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $bs_news['thm'] ?>"
+                        alt="<?= $bs_news['post_f_alt'] ?>" height="auto" width="100%">
                     <h1 class="he1 text-truncate mt-2">
                         <?= $bs_news['post_title'] ?>
                     </h1>

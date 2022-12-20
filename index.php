@@ -18,6 +18,7 @@ include("library/function.php");
         content="Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper">
     <!-- OpenGraph Meta -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= $baseurl ?>">
     <meta property="og:title" content="Bongo Path- Breaking news, Bangladeshi News, World News and more.">
     <meta property="og:description"
         content="Latest news, analysis and opinion by the reporters of Bongo Path, Subscribe for Bangladesh and International news, business, politics, sports, science, technology, health, arts and more.">
@@ -37,9 +38,7 @@ include("library/function.php");
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>
-        <?= $site_data['site_name'] ?> - Breaking news, Bangladeshi News, World News and more.
-    </title>
+    <title><?= $site_data['site_name'] ?> - Breaking news, Bangladeshi News, World News and more.</title>
 </head>
 
 <body>
@@ -49,6 +48,25 @@ include("library/function.php");
     <header>
         <?php include("./library/includes/header.php") ?>
     </header>
+    <section id="main">
+        <?php include("library/includes/section_main.php") ?>
+    </section>
+    <section id="world">
+        <?php include("library/includes/section_world.php") ?>
+    </section>
+    <section id="bn">
+        <?php include("library/includes/section_country.php") ?>
+    </section>
+    <section id="spots">
+        <?php include("library/includes/section_spots.php") ?>
+    </section>
+    <section id="business">
+        <?php include("library/includes/section_business.php") ?>
+    </section>
+    <section id="tech">
+        <?php include("library/includes/section_tech.php") ?>
+    </section>
+    <br><br>
     <section id="news_letter">
         <?php
         if (!isset($_COOKIE['userauthemail'])) {
@@ -74,25 +92,7 @@ include("library/function.php");
             </div>
         </div>
     </section>
-    <section id="main">
-        <?php include("library/includes/section_main.php") ?>
-    </section>
-    <section id="world">
-        <?php include("library/includes/section_world.php") ?>
-    </section>
-    <section id="bn">
-        <?php include("library/includes/section_country.php") ?>
-    </section>
-    <section id="spots">
-        <?php include("library/includes/section_spots.php") ?>
-    </section>
-    <section id="business">
-        <?php include("library/includes/section_business.php") ?>
-    </section>
-    <section id="tech">
-        <?php include("library/includes/section_tech.php") ?>
-    </section>
-    <br><br><br><br>
+    <br><br>
     <section id="footer">
         <?php include("library/includes/footer.php") ?>
     </section>
@@ -100,7 +100,36 @@ include("library/function.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <script src="<?= $baseurl ?>assets/js/main.js"></script>
+    <script>
+        // Clock For Gretting
+        function startTime() {
+            const today = new Date();
+            let hours = today.getHours();
+            let mins = today.getMinutes();
+            let seconds = today.getSeconds();
+            let session = "AM";
+            let day = today.getDate();
+            let month = today.getMonth();
+            let year = today.getFullYear();
+            mins = checkTime(mins);
+            if (hours > 12) {
+                hours = hours - 12;
+                session = "PM"
+            }
+            document.getElementById("clock_txt").innerHTML = hours + ":" + mins + ":" + seconds + " " + session;
+            document.getElementById("calender_text").innerHTML = day + '-' + month + '-' + year;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            } // add zero in front of numbers < 10
+            return i;
+        }
+        startTime();
+// Clock For Gretting End
+    </script>
 </body>
 
 </html>

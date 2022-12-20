@@ -15,7 +15,7 @@
         <div class="col-lg-3 col-md-6">
             <a href="<?= $baseurl ?>post/<?= $br_news_fetchs['post_cat'] ?>/<?= $br_news_fetchs['postSlug'] ?>" class="text-decoration-none">
                 <div class="alert bg-white text-black">
-                    <img class="rounded" src="<?=$baseurl ?>assets/img_post/<?= $br_news_fetchs['thm'] ?>" alt="" height="auto" width="100%">
+                    <img class="rounded" src="<?=$baseurl ?>assets/img_post/<?= $br_news_fetchs['thm'] ?>" alt="<?= $br_news_fetchs['post_f_alt'] ?>" height="auto" width="100%">
                     <h1 class="he1 text-truncate mt-2">
                         <?= $br_news_fetchs['post_title'] ?>
                     </h1>

@@ -1,6 +1,6 @@
 <?php
 include('./library/db.php');
-$sql = "SELECT * FROM `posts` Where types='1'  ORDER BY `post_id` DESC";
+$sql = "SELECT * FROM `posts` Where types='1'  ORDER BY `time` DESC";
 $qry = $conn->query($sql);
 header('Content-type: application/xml');
 echo "<?xml version='1.0' encoding='UTF-8'?>" . PHP_EOL;

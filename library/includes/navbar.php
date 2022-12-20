@@ -1,62 +1,41 @@
-<nav class="navbar bg-light sticky-top justify-content-center shadow-sm">
-    <div class="container-fluid">
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                    <?= $site_data['site_name'] ?><span style="font-size: small;">en</span>
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<div class="container">
+    <header class="blog-header lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-md-3 pt-1 d-none d-md-block">
+                <?php 
+                if (!isset($_COOKIE['userauthemail'])) {
+                    echo '<a class="btn btn-sm btn-outline-secondary" href="#news_letter">Subscribe</a>';
+                } elseif (isset($_COOKIE['userauthemail'])) {
+                    echo '<a class="btn btn-sm btn-primary disabled" href="#news_letter">Subscribed</a>';
+                }
+                ?>
             </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?= $baseurl ?>">Home</a>
-                    </li>
-                    <?php
-                    $qry_nav_menu = mysqli_query($conn, "SELECT * FROM `menus_navbar` ORDER BY `name` ASC");
-                    while ($nav_link = mysqli_fetch_assoc($qry_nav_menu)) {
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= $baseurl ?>category/<?= $nav_link['link'] ?>">
-                            <?= $nav_link['name'] ?>
-                        </a>
-                    </li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-                <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary" type="submit">Search</button>
-                </form>
+            <div class="col-md-6 col-sm-12 text-center">
+                <a class="blog-header-logo text-dark text-decoration-none" href="<?=$baseurl ?>">
+                    <h2>
+                        <?= $site_data['site_name'] ?>
+                    </h2>
+                </a>
+            </div>
+            <div class="col-md-3 d-flex justify-content-end align-items-center d-none d-md-block">
+                <a class="btn btn-sm btn-outline-secondary disabled" href="#">Sign up</a>
             </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand text_line_logo" href="#">
-            <?= $site_data['site_name'] ?>
-        </a>
-        <h1 class="text_h1_logo">
-            <?= $site_data['site_name'] ?><span style="font-size: 22px;">en</span>
-        </h1>
-        <div class="extra_nav">
-            <div class="d-none">
-                <a href="#" class="text-decoration-none mx-1">About</a>
-                <a href="#" class="text-decoration-none mx-1">Privacy Policy</a>
-                <a href="#" class="text-decoration-none mx-1">Products</a>
-                <a href="#" class="btn-sm btn-secondary btn mx-1">Login</a>
-            </div>
-        </div>
+    </header>
+</div>
+<div class="container sticky-top bg-white">
+    <div class="nav-scroller py-1 mb-2 navbar-nav-scroll">
+        <nav class="nav d-flex justify-content-between">
+            <?php
+        $qry_nav_menu = mysqli_query($conn, "SELECT * FROM `menus_navbar` ORDER BY `name` ASC");
+        while ($nav_link = mysqli_fetch_assoc($qry_nav_menu)) {
+        ?>
+            <a class="p-2 link-secondary" href="<?= $baseurl ?>category/<?= $nav_link['link'] ?>">
+                <?= $nav_link['name'] ?>
+            </a>
+            <?php
+        }
+        ?>
+        </nav>
     </div>
-    <div class="new_nav_bar text-center mt-2">
-        <div class="d-none">
-            <a href="#" class="text-decoration-none mx-1">About</a>
-            <a href="#" class="text-decoration-none mx-1">Privacy Policy</a>
-            <a href="#" class="text-decoration-none mx-1">Products</a>
-            <a href="#" class="btn-sm btn-secondary btn mx-1">Login</a>
-        </div>
-    </div>
-</nav>
+</div>
