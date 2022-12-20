@@ -24,7 +24,7 @@
     </header>
 </div>
 <div class="container sticky-top bg-white">
-    <div class="nav-scroller py-1 mb-2 navbar-nav-scroll">
+    <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
             <?php
         $qry_nav_menu = mysqli_query($conn, "SELECT * FROM `menus_navbar` ORDER BY `name` ASC");
