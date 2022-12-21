@@ -38,13 +38,14 @@ if (isset($_POST['post_mode'])) {
         );
         $post_meta = $post_meta . $schema;
         $post_meta_processed = $con->real_escape_string($post_meta);
+        $post_cat_name = cat_fatcher($con, $post_cat);
         // SQL Process
         if ($post_mode == "Publish") {
             $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`thm`,`post_f_alt`,`postSlug`,`post_title`, `post_details`, `post_cat`) VALUES
-('$post_meta_processed','$summery','$thm','$f_image_alt','$postSlug','$post_title','$post_details','$post_cat')";
+('$post_meta_processed','$summery','$thm','$f_image_alt','$postSlug','$post_title','$post_details','$post_cat_name')";
         } elseif ($post_mode == "Draft") {
             $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`postSlug`,`post_title`, `post_details`, `post_cat`, `types`) VALUES
-('$post_meta_processed','$summery','$postSlug','$post_title','$post_details','$post_cat', '0')";
+('$post_meta_processed','$summery','$postSlug','$post_title','$post_details','$post_cat_name', '0')";
         }
         $qry = $con->query($sql);
         if ($br_news == "yes") {
@@ -145,5 +146,11 @@ function image_upload($baseurl, $image_temp )
     move_uploaded_file($f_image_file_name_temp, $save_dir);
     return $f_image_file_name;
     
+}
+function cat_fatcher($con, $recent_post_cat_dat)
+{
+    $rc_post_sql = $con->query("SELECT * FROM `menus_navbar` WHERE link='$recent_post_cat_dat'");
+    $rc_post_sql_data = $rc_post_sql->fetch_assoc();
+    return $rc_post_sql_data['name'];
 }
 ?>

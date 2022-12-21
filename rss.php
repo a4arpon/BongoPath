@@ -1,5 +1,6 @@
 <?php
 include("library/db.php");
+include("./library/function.php");
 header('Content-Type: text/xml');
 $feed="<?xml version='1.0' encoding='UTF-8' ?>";
 $feed.='<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">';
@@ -13,7 +14,7 @@ if(mysqli_num_rows($res)>0){
 		$feed.='<item>';
 			$feed.='<title>'.$row['post_title'].'</title>';
 			$feed.='<content:encoded><![CDATA[' . $row['post_details'] . ']]></content:encoded>';
-			$feed.='<link>'.$baseurl.'post/'.$row['post_cat'].'/'.$row['postSlug'].'</link>';
+			$feed.='<link>'.$baseurl.'post/'.catStraper($conn,$row['post_cat']).'/'.$row['postSlug'].'</link>';
 			$feed.='<guid>'.$row['post_id'].'</guid>';
 			$feed.='<pubDate>'.$row['time'].'</pubDate>';
 		$feed.='</item>';

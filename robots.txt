@@ -6,8 +6,6 @@ Disallow: /admin/
 Disallow: /library/
 Disallow: /cgi-bin/
 Disallow: /assets/
-Disallow: /category/
-Disallow: /category
 Disallow: /thanks.php
 
 Sitemap: http://bongopath.com/sitemap.xml

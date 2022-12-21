@@ -42,7 +42,7 @@ include('./lib/core/db.php');
                           $qry_nav_menu = mysqli_query($con, "SELECT * FROM `menus_navbar`");
                           while ($nav_link = mysqli_fetch_assoc($qry_nav_menu)) {
                           ?>
-                          <option value="<?= $nav_link['name'] ?>">
+                          <option value="<?= $nav_link['link'] ?>">
                             <?= $nav_link['name'] ?>
                           </option>
                           <?php

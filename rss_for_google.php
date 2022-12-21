@@ -1,5 +1,6 @@
 <?php
 include('./library/db.php');
+include("./library/function.php");
 $g_news = $conn->query("SELECT * FROM `google_news` Order by 'id'");
 $sql = "SELECT * FROM `posts` Where types='1'  ORDER BY `post_id` DESC";
 $qry = $conn->query($sql);
@@ -18,7 +19,7 @@ while ($g_news_fetch_assoc = $g_news->fetch_assoc()) {
     echo '<item>' . PHP_EOL;
     echo '<title>' . $row['post_title'] . '</title>' . PHP_EOL;
     echo '<content:encoded><![CDATA[' . $row['post_details'] . ']]></content:encoded>' . PHP_EOL;
-    echo '<link>' . $baseurl . "post/" . $row['post_cat'] . "/" . $row["postSlug"] . '</link>' . PHP_EOL;
+    echo '<link>' . $baseurl . "post/" . catStraper($conn,$row['post_cat']) . "/" . $row["postSlug"] . '</link>' . PHP_EOL;
     echo '<guid>' . $row['post_id'] . '</guid>' . PHP_EOL;
     echo '<pubDate>' . date('Y-m-d', strtotime($row['time'])) . '</pubDate>' . PHP_EOL;
     echo '</item>' . PHP_EOL;

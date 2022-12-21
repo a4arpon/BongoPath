@@ -16,7 +16,7 @@
                         }
                 ?>
                 <div class="col-md-6">
-                    <a href="<?= $baseurl ?>post/<?= $cn_news['post_cat'] ?>/<?= $cn_news['postSlug'] ?>"
+                    <a href="<?= $baseurl ?>post/<?= catStraper($conn, $cn_news['post_cat']) ?>/<?= $cn_news['postSlug'] ?>"
                         class="text-decoration-none">
                         <div class="alert alert-secondary">
                             <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $cn_news['thm'] ?>" alt="<?= $cn_news['post_f_alt'] ?>"
@@ -56,7 +56,7 @@
                         }
                 ?>
                 <div class="col-md-6 col-sm-12">
-                    <a href="<?= $baseurl ?>post/<?= $en_news['post_cat'] ?>/<?= $en_news['postSlug'] ?>"
+                    <a href="<?= $baseurl ?>post/<?= catStraper($conn, $en_news['post_cat']) ?>/<?= $en_news['postSlug'] ?>"
                         class="text-decoration-none">
                         <div class="alert alert-secondary">
                             <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $en_news['thm'] ?>" alt="<?= $en_news['post_f_alt'] ?>"

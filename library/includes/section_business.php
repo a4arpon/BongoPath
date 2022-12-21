@@ -14,7 +14,7 @@
                 }
         ?>
         <div class="col-lg-4 col-md-4">
-            <a href="<?= $baseurl ?>post/<?= $bs_news['post_cat'] ?>/<?= $bs_news['postSlug'] ?>"
+            <a href="<?= $baseurl ?>post/<?= catStraper($conn, $bs_news['post_cat']) ?>/<?= $bs_news['postSlug'] ?>"
                 class="text-decoration-none">
                 <div class="alert alert-secondary">
                     <img class="rounded" src="<?= $baseurl ?>assets/img_post/<?= $bs_news['thm'] ?>"

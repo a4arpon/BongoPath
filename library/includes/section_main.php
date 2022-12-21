@@ -13,7 +13,7 @@
             $br_news_fetchs = $br_news_post->fetch_assoc();
         ?>
         <div class="col-lg-3 col-md-6">
-            <a href="<?= $baseurl ?>post/<?= $br_news_fetchs['post_cat'] ?>/<?= $br_news_fetchs['postSlug'] ?>" class="text-decoration-none">
+            <a href="<?= $baseurl ?>post/<?= catStraper($conn, $br_news_fetchs['post_cat']) ?>/<?= $br_news_fetchs['postSlug'] ?>" class="text-decoration-none">
                 <div class="alert bg-white text-black">
                     <img class="rounded" src="<?=$baseurl ?>assets/img_post/<?= $br_news_fetchs['thm'] ?>" alt="<?= $br_news_fetchs['post_f_alt'] ?>" height="auto" width="100%">
                     <h1 class="he1 text-truncate mt-2">

@@ -20,8 +20,8 @@ include("./library/db.php");
     <meta name="theme-color" content="#ffffff">
     <!-- Fav End -->
     <!-- Canonical URL -->
-    <link rel="canonical" href="<?= $baseurl ?>/about-us">
-    <title>Bongo Path - About US</title>
+    <link rel="canonical" href="<?= $baseurl ?>/p-a-p">
+    <title>Bongo Path - Privacy Policy</title>
 </head>
 <body>
     

@@ -9,7 +9,7 @@ echo '<sitemap>' . PHP_EOL;
 echo '<loc>' . $baseurl . '</loc>' . PHP_EOL;
 echo '</sitemap>' . PHP_EOL;
 echo '<sitemap>' . PHP_EOL;
-echo '<loc>' . $baseurl .'about-us.php'. '</loc>' . PHP_EOL;
+echo '<loc>' . $baseurl .'about-us'. '</loc>' . PHP_EOL;
 echo '</sitemap>' . PHP_EOL;
 while ($row = $qry->fetch_assoc()) {
 

@@ -31,15 +31,15 @@ if (isset($postSlug)) {
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $baseurl ?>assets/css/style.css">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img_site/fav/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img_site/fav/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img_site/fav/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img_site/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img_site/fav/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img_site/fav/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img_site/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img_site/fav/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img_site/fav/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= $baseurl ?>assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= $baseurl ?>assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= $baseurl ?>assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= $baseurl ?>assets/img_site/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= $baseurl ?>assets/img_site/fav/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="<?= $baseurl ?>assets/img_site/fav/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $baseurl ?>assets/img_site/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= $baseurl ?>assets/img_site/fav/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $baseurl ?>assets/img_site/fav/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Fav End -->
         <style>

@@ -1,5 +1,6 @@
 <?php
 include('./library/db.php');
+include("./library/function.php");
 $g_news = $conn->query("SELECT * FROM `google_news` Order by 'id'");
 $sql = "SELECT * FROM `posts` Where types='1'  ORDER BY `post_id` DESC";
 $qry = $conn->query($sql);
@@ -13,7 +14,7 @@ while ($g_news_fetch_assoc = $g_news->fetch_assoc()) {
     $row = $g_news_post->fetch_assoc();
     // Now Access The Fetches
     echo '<url>' . PHP_EOL;
-    echo '<loc>' . $baseurl . "post/" . $row['post_cat'] . "/" . $row["postSlug"] . '</loc>' . PHP_EOL;
+    echo '<loc>' . $baseurl . "post/" . catStraper($conn,$row['post_cat']) . "/" . $row["postSlug"] . '</loc>' . PHP_EOL;
     echo '<news:news>' . PHP_EOL;
     echo '<news:publication>' . PHP_EOL;
     echo '<news:name>Bongo Path</news:name>' . PHP_EOL;
