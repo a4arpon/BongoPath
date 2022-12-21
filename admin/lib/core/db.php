@@ -1,7 +1,7 @@
 <?php
 $host_name = "localhost"; // Collect form your hosting panel
-$db_username = "root"; // Collect form your hosting panel
-$db_user_pwd = ""; // Collect form your hosting panel
+$db_username = "root"; //octaomou_bongopath Collect form your hosting panel
+$db_user_pwd = ""; //reB9DilRYMF# Collect form your hosting panel
 $db = "octaomou_bongopath_live"; // Collect form your hosting panel
 
 $con = mysqli_connect($host_name, $db_username, $db_user_pwd, $db);

@@ -22,7 +22,7 @@ include("library/function.php");
     <meta property="og:title" content="Bongo Path- Breaking news, Bangladeshi News, World News and more.">
     <meta property="og:description"
         content="Latest news, analysis and opinion by the reporters of Bongo Path, Subscribe for Bangladesh and International news, business, politics, sports, science, technology, health, arts and more.">
-    <meta property="og:image" content="assets/img_site/logo.jpg">
+    <meta property="og:image" content="assets/img_site/Bongo-Path-Logo.png">
     <meta property="og:image:width" content="1200">
     <meta name="brand_name" content="Bongo Path">
     <!-- Schema Data Index Page -->
@@ -30,7 +30,7 @@ include("library/function.php");
         {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"<?= $baseurl ?>"}]}
     </script>
     <script type="application/ld+json"
-        data-schema="Organization">{"@context":"http://schema.org","@type":"Organization","name":"<?= $site_data['site_name'] ?>","alternateName":"<?= $site_data['site_name'] ?>","foundingDate":"2022-12-31","url":"<?= $baseurl ?>","logo":{"@type":"ImageObject","url":"<?= $baseurl ?>assets/img_site/logo.jpg"},"image":"assets/img_site/logo.jpg","description":"Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper"}}</script>
+        data-schema="Organization">{"@context":"http://schema.org","@type":"Organization","name":"<?= $site_data['site_name'] ?>","alternateName":"<?= $site_data['site_name'] ?>","foundingDate":"2022-12-31","url":"<?= $baseurl ?>","logo":{"@type":"ImageObject","url":"<?= $baseurl ?>assets/img_site/Bongo-Path-Logo.png"},"image":"assets/img_site/Bongo-Path-Logo.png","description":"Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper"}}</script>
     <!-- canonical url -->
     <link rel="canonical" href="<?= $baseurl ?>">
     <!-- CSS only -->
@@ -38,7 +38,21 @@ include("library/function.php");
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title><?= $site_data['site_name'] ?> - Breaking news, Bangladeshi News, World News and more.</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img_site/fav/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img_site/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img_site/fav/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img_site/fav/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img_site/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img_site/fav/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img_site/fav/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Fav End -->
+    <title>
+        <?= $site_data['site_name'] ?> - Breaking news, Bangladeshi News, World News and more.
+    </title>
 </head>
 
 <body>

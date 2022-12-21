@@ -3,11 +3,7 @@ include("./library/db.php");
 $site_data_qry = mysqli_query($conn, "SELECT * FROM `site_settings` Where id='1'");
 $site_data = mysqli_fetch_assoc($site_data_qry);
 include("library/function.php");
-if (!isset($_COOKIE['userauthemail'])) {
-    header("location:./index.php");
-} elseif (isset($_COOKIE['userauthemail'])) {
-    
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +16,6 @@ if (!isset($_COOKIE['userauthemail'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img_site/fav/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/img_site/fav/apple-touch-icon.png">
@@ -33,23 +28,57 @@ if (!isset($_COOKIE['userauthemail'])) {
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img_site/fav/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Fav End -->
-    <title><?= $site_data['site_name'] ?></title>
+    <title>
+        <?= $site_data['site_name'] ?> | Category Map
+    </title>
 </head>
 
 <body>
     <?php
     include('./library/includes/navbar.php');
     ?>
-    <header>
-        <?php include("./library/includes/header.php") ?>
-    </header>
-    <section id="thanks">
+    <section id="lists">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="alert alert-success col-md-10">
-                    <h1><span class="fw-bolder">Thank you </span>for subscribing our newsletter.</h1>
-                    <h3>You can explore our other products. <a href="https://blacktelescope.xyz/products" class="text-success">Click Here</a></h3>
-                </div>
+            <div class="row gx-2">
+                <?php
+                if (!isset($_GET['cat_name'])) {
+                    $sql_qry = $conn->query("SELECT * FROM `menus_navbar` ORDER BY `name` ASC");
+                    if ($sql_qry->num_rows > 0) {
+                        while ($assoc_cat = $sql_qry->fetch_assoc()) {
+                ?>
+                <a href="<?= $baseurl ?>category/<?= $assoc_cat['link'] ?>"
+                    class="text-decoration-none col-2 my-2 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <?= $assoc_cat['name'] ?>
+                        </div>
+                    </div>
+                </a>
+                <?php
+                        }
+                    }
+                } elseif (isset($_GET['cat_name'])) {
+                    $cat_name = $_GET['cat_name'];
+                    $sql_post = $conn->query("SELECT * FROM `posts` Where `post_cat`='$cat_name' ORDER BY `time` DESC");
+                    if ($sql_post->num_rows > 0) {
+                        while ($post_fetch = $sql_post->fetch_assoc()) {
+                ?>
+                <a href="<?= $baseurl ?>post/<?= $post_fetch['post_cat'] ?>/<?= $post_fetch['postSlug'] ?>"
+                    class="text-decoration-none col-6 my-2 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <?= $post_fetch['post_title'] ?>
+                        </div>
+                    </div>
+                </a>
+                <?php
+                        }
+                    } else {
+                        echo ("This Category Doesn't contain any posts");
+                    }
+
+                }
+                        ?>
             </div>
         </div>
     </section>

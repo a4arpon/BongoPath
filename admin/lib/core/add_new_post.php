@@ -1,8 +1,9 @@
-<?php
+<?php 
 // add_new_post.php
 include("./db.php");
 if (isset($_POST['post_mode'])) {
     extract($_POST);
+    // Image Upload
     if ($post_title == "") {
         $error[] = "Please Enter Post Title";
     }
@@ -12,24 +13,38 @@ if (isset($_POST['post_mode'])) {
     if ($post_details == "") {
         $error[] = "Please Enter Post";
     }
-    if ($post_meta == "") {
-        $error[] = "Please Enter Post Meta";
-    }
     if (!isset($error)) {
-        // $post_fImage = 
+        $image_temp = $_FILES['f_image_file'];
+        $thm = image_upload($baseurl, $image_temp);
+        // $post_fImage =
         $post_title = $con->real_escape_string($post_title);
         $post_details = $con->real_escape_string($post_details);
         $summery = $con->real_escape_string($summery);
+        $f_image_alt =$con->real_escape_string($f_image_alt);
         $postSlug = slug($post_title);
         // Schema Generator
-        $schema = meta_processor($baseurl, $author, $author_url, $org_name, $org_url, $summery, $post_date, $postSlug, $post_title, $post_cat);
+        $schema = meta_processor(
+            $baseurl,
+            $author,
+            $author_url,
+            $org_name,
+            $org_url,
+            $summery,
+            $post_date,
+            $postSlug,
+            $post_title,
+            $post_cat,
+            $thm
+        );
         $post_meta = $post_meta . $schema;
         $post_meta_processed = $con->real_escape_string($post_meta);
         // SQL Process
         if ($post_mode == "Publish") {
-            $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`postSlug`,`post_title`, `post_details`, `post_cat`) VALUES ('$post_meta_processed','$summery','$postSlug','$post_title','$post_details','$post_cat')";
+            $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`thm`,`post_f_alt`,`postSlug`,`post_title`, `post_details`, `post_cat`) VALUES
+('$post_meta_processed','$summery','$thm','$f_image_alt','$postSlug','$post_title','$post_details','$post_cat')";
         } elseif ($post_mode == "Draft") {
-            $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`postSlug`,`post_title`, `post_details`, `post_cat`, `types`) VALUES ('$post_meta_processed','$summery','$postSlug','$post_title','$post_details','$post_cat', '0')";
+            $sql = "INSERT INTO `posts`(`post_meta`,`summery`,`postSlug`,`post_title`, `post_details`, `post_cat`, `types`) VALUES
+('$post_meta_processed','$summery','$postSlug','$post_title','$post_details','$post_cat', '0')";
         }
         $qry = $con->query($sql);
         if ($br_news == "yes") {
@@ -65,9 +80,22 @@ function slug($title)
     return $title;
 
 }
-function meta_processor($baseurl, $author, $author_url, $org_name, $org_url, $summery, $post_date, $postSlug, $post_title, $post_cat)
+function meta_processor(
+    $baseurl,
+    $author,
+    $author_url,
+    $org_name,
+    $org_url,
+    $summery,
+    $post_date,
+    $postSlug,
+    $post_title,
+    $post_cat,
+    $thm
+)
 {
-    $schema = '<script type="application/ld+json">
+    $schema = '
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
@@ -77,7 +105,7 @@ function meta_processor($baseurl, $author, $author_url, $org_name, $org_url, $su
       },
       "headline": "' . $post_title . '",
       "description": "' . $summery . '",
-      "image": "' . $baseurl . 'assets/post_img' . $author . '",  
+      "image": "' . $baseurl . 'assets/post_img/' . $thm . '",  
       "author": {
         "@type": "Organization",
         "name": "' . $author . '",
@@ -94,20 +122,28 @@ function meta_processor($baseurl, $author, $author_url, $org_name, $org_url, $su
       "datePublished": "' . $post_date . '"
     }
     </script>
-    <meta name="description" content="' . $summery . '">
-    <link rel="canonical" href="' . $baseurl . 'post/' . $post_cat . '/' . $postSlug . '">
-    <meta property="og:site_name" content="Bongo Path">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="' . $baseurl . 'post/' . $post_cat . '/' . $postSlug . '">
-    <meta property="og:title" content="' . $post_title . '">
-    <meta property="og:description" content="' . $summery . '">
-    <meta property="og:image" content="' . $baseurl . 'assets/post_img' . $author . '">
-    <meta property="og:image:width" content="750">
-    <meta property="og:image:height" content="393">
-    <meta property="article:published_time" content="' . $post_date . '">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    ';
+<meta name="description" content="' . $summery . '">
+<link rel="canonical" href="' . $baseurl . 'post/' . $post_cat . '/' . $postSlug . '">
+<meta property="og:site_name" content="Bongo Path">
+<meta property="og:type" content="article">
+<meta property="og:url" content="' . $baseurl . 'post/' . $post_cat . '/' . $postSlug . '">
+<meta property="og:title" content="' . $post_title . '">
+<meta property="og:description" content="' . $summery . '">
+<meta property="og:image" content="' . $baseurl . 'assets/post_img/' . $thm . '">
+<meta property="og:image:width" content="750">
+<meta property="og:image:height" content="393">
+<meta property="article:published_time" content="' . $post_date . '">
+<meta name="robots" content="index, follow, max-image-preview:large">
+';
     return $schema;
 }
-
+function image_upload($baseurl, $image_temp )
+{
+    $f_image_file_name = time().$image_temp['name'];
+    $save_dir ='../../../assets/img_post/'.$f_image_file_name;
+    $f_image_file_name_temp = $image_temp['tmp_name'];
+    move_uploaded_file($f_image_file_name_temp, $save_dir);
+    return $f_image_file_name;
+    
+}
 ?>

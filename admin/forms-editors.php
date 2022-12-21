@@ -22,7 +22,7 @@ include('./lib/core/db.php');
 
   <main id="main" class="main">
     <section class="section">
-      <form action="./lib/core/add_new_post.php" method="post">
+      <form action="./lib/core/add_new_post.php" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-lg-12 mb-2">
             <div class="card">
@@ -32,7 +32,7 @@ include('./lib/core/db.php');
                   <textarea name="post_title" class="w-100" rows="2"></textarea>
                 </div>
                 <div class="d-md-flex">
-                  <div class="col-md-6 mb-2 px-2">
+                  <div class="col-md-4 mb-2 px-2">
                     <div class="row gx-2">
                       <div class="col-6">
                         <h5>Select Category</h5>
@@ -58,9 +58,17 @@ include('./lib/core/db.php');
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 mb-2 px-2">
-                    <h5>Select Thumbnail</h5>
-                    <input type="file" name="" class="form-control">
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-4 mb-2 px-2">
+                        <h5>Select Thumbnail</h5>
+                        <input type="file" name="f_image_file" class="form-control" accept="image/*">
+                      </div>
+                      <div class="col-md-8 mb-2 px-2">
+                        <h5>Image Alt Tag</h5>
+                        <input type="text" name="f_image_alt" class="form-control">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -109,7 +117,8 @@ include('./lib/core/db.php');
                   <div class="col-4">
                     <span>Publish Date</span>
                     <input type="date" name="post_date" class="form-control mb-2">
-                    <select name="google_news" class="form_control">
+                    <span>Google News?</span>
+                    <select name="google_news" class="form-control mt-2">
                       <option value="no">No</option>
                       <option value="yes">Yes</option>
                     </select>

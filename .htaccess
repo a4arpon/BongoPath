@@ -23,6 +23,7 @@ RewriteEngine On
 
     RewriteRule ^category/([a-zA-Z0-9-/]+) category.php?item=$1
     RewriteRule ^post/([a-zA-Z0-9-/]+) post.php?post=$1
+    RewriteRule ^category_sm/([a-zA-Z0-9-/]+) category_sm.php?cat_name=$1
 
 
     

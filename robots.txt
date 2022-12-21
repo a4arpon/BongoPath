@@ -2,12 +2,12 @@ User-Agent: *
 Disallow: 
 Allow: /
 Disallow: /admin/
-Disallow: /admin
+
 Disallow: /library/
-Disallow: /library
 Disallow: /cgi-bin/
 Disallow: /assets/
-Disallow: /assets
+Disallow: /category/
+Disallow: /category
 Disallow: /thanks.php
 
 Sitemap: http://bongopath.com/sitemap.xml
