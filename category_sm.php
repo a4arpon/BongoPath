@@ -27,8 +27,17 @@ $site_data = mysqli_fetch_assoc($site_data_qry);
     <link rel="icon" type="image/png" sizes="16x16" href="<?= $baseurl ?>assets/img_site/fav/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Fav End -->
+    <meta name="robots" content="follow, index"/>
+    <!-- canonical url -->
+    <link rel="canonical" href="<?= $baseurl ?>category_sm/<?php if (!isset($_GET['item'])) {}elseif(isset($_GET['item'])){echo $_GET['item'];}?>">
     <title>
-        <?= $site_data['site_name'] ?> | Category
+        <?php
+        if (!isset($_GET['item'])) {
+           
+        } elseif(isset($_GET['item'])){
+            echo $_GET['item'];
+        }
+        ?> | Category | <?= $site_data['item'] ?>
     </title>
 </head>
 

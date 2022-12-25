@@ -33,6 +33,7 @@ include("library/function.php");
         data-schema="Organization">{"@context":"http://schema.org","@type":"Organization","name":"<?= $site_data['site_name'] ?>","alternateName":"<?= $site_data['site_name'] ?>","foundingDate":"2022-12-31","url":"<?= $baseurl ?>","logo":{"@type":"ImageObject","url":"<?= $baseurl ?>assets/img_site/Bongo-Path-Logo.png"},"image":"assets/img_site/Bongo-Path-Logo.png","description":"Bongo Path, bangla news, current News, bangla newspaper, bangladesh newspaper, online paper, bangladeshi newspaper, bangla news paper, bangladesh newspapers, newspaper, all bangla news paper, bd news paper, news paper, bangladesh news paper, daily, bangla newspaper, daily news paper, bangladeshi news paper, bangla paper, all bangla newspaper, bangladesh news, daily newspaper"}}</script>
     <!-- canonical url -->
     <link rel="canonical" href="<?= $baseurl ?>">
+    <meta name="robots" content="follow, index"/>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">

@@ -28,18 +28,41 @@ include("library/function.php");
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img_site/fav/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Fav End -->
+    <meta name="robots" content="follow, index" />
+    <!-- canonical url -->
+    <link rel="canonical" href="<?= $baseurl ?>category/<?php if (!isset($_GET['cat_name'])) {
+          } elseif (isset($_GET['cat_name'])) {
+              echo $_GET['cat_name'];
+          } ?>">
     <title>
         <?php
         if (!isset($_GET['cat_name'])) {
-           
-        } elseif(isset($_GET['cat_name'])){
+
+        } elseif (isset($_GET['cat_name'])) {
             echo $_GET['cat_name'];
         }
-        ?> | Category Map |<?= $site_data['site_name'] ?>
+        ?> | Category Map | <?= $site_data['site_name'] ?>
     </title>
 </head>
 
 <body>
+    <?php
+    if (!isset($_GET['cat_name'])) {
+
+    } elseif (isset($_GET['cat_name'])) {
+    ?>
+    <center>
+        <div class="card">
+            <div class="card-body">
+                <h1>
+                    <?= $_GET['cat_name'] ?>
+                </h1>
+            </div>
+        </div>
+    </center>
+    <?php
+    }
+    ?>
     <?php
     include('./library/includes/navbar.php');
     ?>
@@ -53,10 +76,10 @@ include("library/function.php");
                         while ($assoc_cat = $sql_qry->fetch_assoc()) {
                 ?>
                 <a href="<?= $baseurl ?>category_sm/<?= $assoc_cat['link'] ?>"
-                    class="text-decoration-none col-2 my-2 text-center">
+                    class="text-decoration-none col-3 my-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <?= $assoc_cat['name'] ?>
+                            <h1><?= $assoc_cat['name'] ?></h1>
                         </div>
                     </div>
                 </a>
@@ -84,7 +107,7 @@ include("library/function.php");
                     }
 
                 }
-                        ?>
+                ?>
             </div>
         </div>
     </section>

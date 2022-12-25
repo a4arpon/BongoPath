@@ -11,7 +11,7 @@
                             <h4 class="text-secondary" id="calender_text"></h4>
                         </div>
                     </div>
-                    <h2 class="text-primary fw-bolder">Bongo Path</h2>
+                    <h2 class="text-primary fw-bolder d-none">Bongo Path</h2>
                     <div class="row d-none">
                         <div class="col">
                             <span class="text-warning">30% Rain</span>

@@ -1,5 +1,10 @@
 <?php
 include('./lib/core/db.php');
+if (!isset($_COOKIE['admin_cook'])) {
+  header("location:./pages-login.php");
+} elseif (isset($_COOKIE['admin_cook'])) {
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,10 @@
 <?php
 include("./lib/core/db.php");
+if (!isset($_COOKIE['admin_cook'])) {
+  header("location:./pages-login.php");
+} elseif (isset($_COOKIE['admin_cook'])) {
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +33,9 @@ include("./lib/core/db.php");
           $post_sql = "SELECT * FROM `posts` ORDER BY `time` DESC";
           $post_result = $con->query($post_sql);
           if ($post_result->num_rows > 0) {
-            
+
             while ($post = $post_result->fetch_assoc()) {
-              
+
           ?>
           <div class="card p-2">
             <div class="card-body d-flex align-items-center align-content-center" style="overflow: hidden;">
@@ -39,20 +44,22 @@ include("./lib/core/db.php");
                   <?= $post['post_title'] ?>
                 </h4>
                 <span class="badge bg-secondary">
-                  <?=$post['post_cat'] ?>
+                  <?= $post['post_cat'] ?>
                 </span>
               </div>
 
               <div class="btn-group">
-                <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                <a href="lib/core/del_post_core.php?post_id=<?=$post['post_id'] ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                <a href="forms-editors_edit.php?post_id=<?= $post['post_id'] ?>" class="btn btn-warning"><i
+                    class="bi bi-pencil-square"></i></a>
+                <a href="lib/core/del_post_core.php?post_id=<?= $post['post_id'] ?>"
+                  onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="bi bi-trash"></i></a>
               </div>
 
             </div>
           </div>
           <?php }
-          } ?>
-
+          }
+          ?>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -64,8 +71,6 @@ include("./lib/core/db.php");
               </a>
             </li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>

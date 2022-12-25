@@ -24,6 +24,6 @@ if ($development_mod) {
 // development mod
 $con->set_charset("utf8");
 // Base URL
-$baseurl = "http://localhost/demo/";
+$baseurl = "http://localhost/bongopath/";
 session_start();
 ?>

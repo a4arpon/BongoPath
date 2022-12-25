@@ -92,7 +92,7 @@ if (isset($postSlug)) {
                                 continue;
                             }
                     ?>
-                    <a href="<?= $baseurl ?>post/<?= $r_post['post_cat'] ?>/<?= $r_post['postSlug'] ?>"
+                    <a href="<?= $baseurl ?>post/<?= catStraper($conn, $r_post['post_cat']) ?>/<?= $r_post['postSlug'] ?>"
                         class="text-decoration-none text-dark">
                         <div class="alert alert-secondary mb-2">
                             <h4 class="fs-4 text-truncate">
