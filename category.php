@@ -30,22 +30,18 @@ include("library/function.php");
     <!-- Fav End -->
     <meta name="robots" content="follow, index" />
     <!-- canonical url -->
-    <link rel="canonical" href="<?= $baseurl ?>category/<?php if (!isset($_GET['cat_name'])) {
-          } elseif (isset($_GET['cat_name'])) {
-              echo $_GET['cat_name'];
-          } ?>">
-    <title>
-        <?php
-        if (!isset($_GET['cat_name'])) {
-
-        } elseif (isset($_GET['cat_name'])) {
-            echo $_GET['cat_name'];
-        }
-        ?> | Category Map | <?= $site_data['site_name'] ?>
-    </title>
+    <link rel="canonical"
+        href="<?= $baseurl ?>category/<?php if (!isset($_GET['cat_name'])) {
+      } elseif (isset($_GET['cat_name'])) {
+          echo $_GET['cat_name'];
+      } ?>">
+    <title><?php if (!isset($_GET['cat_name'])) {} elseif (isset($_GET['cat_name'])) {echo $_GET['cat_name'];} ?> Categories - <?= $site_data['site_name'] ?></title>
 </head>
 
 <body>
+    <?php
+    include('./library/includes/navbar.php');
+    ?>
     <?php
     if (!isset($_GET['cat_name'])) {
 
@@ -63,9 +59,6 @@ include("library/function.php");
     <?php
     }
     ?>
-    <?php
-    include('./library/includes/navbar.php');
-    ?>
     <section id="lists">
         <div class="container">
             <div class="row gx-2">
@@ -79,7 +72,9 @@ include("library/function.php");
                     class="text-decoration-none col-3 my-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <h1><?= $assoc_cat['name'] ?></h1>
+                            <h1>
+                                <?= $assoc_cat['name'] ?>
+                            </h1>
                         </div>
                     </div>
                 </a>

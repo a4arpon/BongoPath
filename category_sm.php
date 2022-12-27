@@ -30,15 +30,7 @@ $site_data = mysqli_fetch_assoc($site_data_qry);
     <meta name="robots" content="follow, index"/>
     <!-- canonical url -->
     <link rel="canonical" href="<?= $baseurl ?>category_sm/<?php if (!isset($_GET['item'])) {}elseif(isset($_GET['item'])){echo $_GET['item'];}?>">
-    <title>
-        <?php
-        if (!isset($_GET['item'])) {
-           
-        } elseif(isset($_GET['item'])){
-            echo $_GET['item'];
-        }
-        ?> | Category | <?= $site_data['item'] ?>
-    </title>
+    <title><?php if (!isset($_GET['item'])) {} elseif(isset($_GET['item'])){echo $_GET['item'];} ?> - Category - <?= $site_data['item'] ?></title>
 </head>
 
 <body>
